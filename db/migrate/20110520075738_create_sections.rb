@@ -4,11 +4,13 @@ class CreateSections < ActiveRecord::Migration
       t.string :name
       t.integer :position
       t.boolean :visible
+      t.references :page
       t.string :content_type
       t.text :content
 
       t.timestamps
     end
+    add_index("sections","page_id")
   end
 
   def self.down

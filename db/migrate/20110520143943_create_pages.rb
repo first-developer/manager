@@ -4,11 +4,14 @@ class CreatePages < ActiveRecord::Migration
       t.string :name
       t.string :permalink
       t.integer :position
-      t.boolean :visible
+      t.boolean :visible, :default => false
       t.references :subject
 
       t.timestamps
     end
+    add_index("pages","subject_id")
+    add_index("pages","permalink")
+    
   end
 
   def self.down

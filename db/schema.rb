@@ -10,22 +10,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520143943) do
+ActiveRecord::Schema.define(:version => 20110520234715) do
 
   create_table "pages", :force => true do |t|
     t.string   "name"
     t.string   "permalink"
     t.integer  "position"
-    t.boolean  "visible"
+    t.string   "visible",    :default => "f"
     t.integer  "subject_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "pages", ["permalink"], :name => "index_pages_on_permalink"
+  add_index "pages", ["subject_id"], :name => "index_pages_on_subject_id"
+
   create_table "sections", :force => true do |t|
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
+    t.string   "visible",      :default => "f"
     t.string   "content_type"
     t.text     "content"
     t.datetime "created_at"
@@ -35,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20110520143943) do
   create_table "subjects", :force => true do |t|
     t.string   "name"
     t.integer  "position"
-    t.boolean  "visible"
+    t.string   "visible",    :default => "f"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
