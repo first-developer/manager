@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  permalink: MyString
   position: 1
   visible: false
-  subject: 
+  content_type: MyString
+  content: MyText
 
 two:
   name: MyString
-  permalink: MyString
   position: 1
   visible: false
-  subject: 
+  content_type: MyString
+  content: MyText

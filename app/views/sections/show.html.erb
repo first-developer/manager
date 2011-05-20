@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @section.name %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @section.position %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @section.visible %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%= @section.content_type %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @section.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_section_path(@section) %> |
+<%= link_to 'Back', sections_path %>

@@ -1,4 +1,8 @@
 Manager::Application.routes.draw do
+  resources :sections
+
+  resources :subjects
+
   resources :pages
 
   # The priority is based upon order of creation:

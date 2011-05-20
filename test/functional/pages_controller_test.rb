@@ -1,54 +1,49 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionController::TestCase
-  def test_index
+  setup do
+    @page = pages(:one)
+  end
+
+  test "should get index" do
     get :index
-    assert_template 'index'
+    assert_response :success
+    assert_not_nil assigns(:pages)
   end
 
-  def test_show
-    get :show, :id => Page.first
-    assert_template 'show'
-  end
-
-  def test_new
+  test "should get new" do
     get :new
-    assert_template 'new'
+    assert_response :success
   end
 
-  def test_create_invalid
-    Page.any_instance.stubs(:valid?).returns(false)
-    post :create
-    assert_template 'new'
+  test "should create page" do
+    assert_difference('Page.count') do
+      post :create, :page => @page.attributes
+    end
+
+    assert_redirected_to page_path(assigns(:page))
   end
 
-  def test_create_valid
-    Page.any_instance.stubs(:valid?).returns(true)
-    post :create
-    assert_redirected_to page_url(assigns(:page))
+  test "should show page" do
+    get :show, :id => @page.to_param
+    assert_response :success
   end
 
-  def test_edit
-    get :edit, :id => Page.first
-    assert_template 'edit'
+  test "should get edit" do
+    get :edit, :id => @page.to_param
+    assert_response :success
   end
 
-  def test_update_invalid
-    Page.any_instance.stubs(:valid?).returns(false)
-    put :update, :id => Page.first
-    assert_template 'edit'
+  test "should update page" do
+    put :update, :id => @page.to_param, :page => @page.attributes
+    assert_redirected_to page_path(assigns(:page))
   end
 
-  def test_update_valid
-    Page.any_instance.stubs(:valid?).returns(true)
-    put :update, :id => Page.first
-    assert_redirected_to page_url(assigns(:page))
-  end
+  test "should destroy page" do
+    assert_difference('Page.count', -1) do
+      delete :destroy, :id => @page.to_param
+    end
 
-  def test_destroy
-    page = Page.first
-    delete :destroy, :id => page
-    assert_redirected_to pages_url
-    assert !Page.exists?(page.id)
+    assert_redirected_to pages_path
   end
 end

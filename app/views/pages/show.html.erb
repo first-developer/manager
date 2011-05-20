@@ -1,16 +1,30 @@
-<%  "Page" %>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @page.title %>
-</p>
-<p>
-  <strong>Body:</strong>
-  <%= @page.body %>
+  <b>Name:</b>
+  <%= @page.name %>
 </p>
 
 <p>
-  <%= link_to "Edit", edit_page_path(@page) %> |
-  <%= link_to "Destroy", @page, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", pages_path %>
+  <b>Permalink:</b>
+  <%= @page.permalink %>
 </p>
+
+<p>
+  <b>Position:</b>
+  <%= @page.position %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @page.visible %>
+</p>
+
+<p>
+  <b>Subject:</b>
+  <%= @page.subject %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>

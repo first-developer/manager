@@ -1,10 +1,10 @@
-<%= form_for(@page) do |f| %>
-  <% if @page.errors.any? %>
+<%= form_for(@section) do |f| %>
+  <% if @section.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <h2><%= pluralize(@section.errors.count, "error") %> prohibited this section from being saved:</h2>
 
       <ul>
-      <% @page.errors.full_messages.each do |msg| %>
+      <% @section.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,10 +16,6 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :permalink %><br />
-    <%= f.text_field :permalink %>
-  </div>
-  <div class="field">
     <%= f.label :position %><br />
     <%= f.text_field :position %>
   </div>
@@ -28,8 +24,12 @@
     <%= f.check_box :visible %>
   </div>
   <div class="field">
-    <%= f.label :subject %><br />
-    <%= f.text_field :subject %>
+    <%= f.label :content_type %><br />
+    <%= f.text_field :content_type %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content %>
   </div>
   <div class="actions">
     <%= f.submit %>

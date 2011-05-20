@@ -1,19 +1,31 @@
-<%  "Pages" %>
+<h1>Listing pages</h1>
 
 <table>
   <tr>
-    <th>Title</th>
-    <th>Body</th>
+    <th>Name</th>
+    <th>Permalink</th>
+    <th>Position</th>
+    <th>Visible</th>
+    <th>Subject</th>
+    <th></th>
+    <th></th>
+    <th></th>
   </tr>
-  <% for page in @pages %>
-    <tr>
-      <td><%= page.title %></td>
-      <td><%= page.body %></td>
-      <td><%= link_to "Show", page %></td>
-      <td><%= link_to "Edit", edit_page_path(page) %></td>
-      <td><%= link_to "Destroy", page, :confirm => 'Are you sure?', :method => :delete %></td>
-    </tr>
-  <% end %>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.name %></td>
+    <td><%= page.permalink %></td>
+    <td><%= page.position %></td>
+    <td><%= page.visible %></td>
+    <td><%= page.subject %></td>
+    <td><%= link_to 'Show', page %></td>
+    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
 </table>
 
-<p><%= link_to "New Page", new_page_path %></p>
+<br />
+
+<%= link_to 'New Page', new_page_path %>
